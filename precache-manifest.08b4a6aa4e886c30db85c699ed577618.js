@@ -20,23 +20,23 @@ self.__precacheManifest = [
     "url": "/localsnippets/static/js/runtime~main.6abcb076.js"
   },
   {
-    "revision": "a7cee7f26c2437f2175d",
-    "url": "/localsnippets/static/js/main.a7cee7f2.chunk.js"
+    "revision": "313ada7540fa045f3262",
+    "url": "/localsnippets/static/js/main.313ada75.chunk.js"
   },
   {
-    "revision": "d34163f23c3c803911f6",
-    "url": "/localsnippets/static/js/1.d34163f2.chunk.js"
+    "revision": "b773a7d6676200f61e4a",
+    "url": "/localsnippets/static/js/1.b773a7d6.chunk.js"
   },
   {
-    "revision": "a7cee7f26c2437f2175d",
-    "url": "/localsnippets/static/css/main.dc08a7b1.chunk.css"
+    "revision": "313ada7540fa045f3262",
+    "url": "/localsnippets/static/css/main.1b29163a.chunk.css"
   },
   {
-    "revision": "d34163f23c3c803911f6",
-    "url": "/localsnippets/static/css/1.b06c7dfc.chunk.css"
+    "revision": "b773a7d6676200f61e4a",
+    "url": "/localsnippets/static/css/1.7a0b29da.chunk.css"
   },
   {
-    "revision": "5b8fedc65dbd2a88ef1ea287c36a7be1",
+    "revision": "f6edd74ea53863b3d9ec727c5d3a2085",
     "url": "/localsnippets/index.html"
   }
 ];
