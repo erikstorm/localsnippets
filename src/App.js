@@ -68,7 +68,8 @@ class App extends Component {
   showListing = () => {
     this.setState({
       SnippetCreator: false,
-      SnippetEditor: false
+      SnippetEditor: false,
+      filteredLanguages: []
     });
   };
   showForm = () => {
