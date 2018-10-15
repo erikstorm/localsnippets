@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Github from '../github.png';
 export default props => {
   return (
     <header>
@@ -31,7 +31,7 @@ export default props => {
           rel="noopener noreferrer"
           className="btn btn-secondary btn-sm"
         >
-          <img alt="github" style={{ height: '20px' }} src="../github.svg" />
+          <img alt="github" style={{ height: '20px' }} src={Github} />
         </a>
       </div>
     </header>
