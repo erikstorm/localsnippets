@@ -75,14 +75,16 @@ class App extends Component {
   showForm = () => {
     this.setState({
       SnippetCreator: true,
-      SnippetEditor: false
+      SnippetEditor: false,
+      filteredLanguages: []
     });
   };
   showEdit = snippet => {
     this.setState({
       SnippetCreator: false,
       SnippetEditor: true,
-      currentSnippet: snippet
+      currentSnippet: snippet,
+      filteredLanguages: []
     });
   };
   createSnippet = createdSnippet => {
@@ -101,7 +103,8 @@ class App extends Component {
         ]
       }));
       this.setState({
-        SnippetCreator: false
+        SnippetCreator: false,
+        filteredLanguages: []
       });
     } else {
       NotificationManager.warning(
@@ -128,7 +131,8 @@ class App extends Component {
       }));
       this.setState({
         SnippetEditor: false,
-        SnippetCreator: false
+        SnippetCreator: false,
+        filteredLanguages: []
       });
     } else {
       NotificationManager.warning(
@@ -168,6 +172,7 @@ class App extends Component {
               <SnippetTagList
                 snippets={this.state.snippets}
                 langFilter={this.langFilter}
+                filteredLanguages={this.state.filteredLanguages}
               />
             </div>
           </div>

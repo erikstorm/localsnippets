@@ -23,6 +23,7 @@ export default class SnippetTagList extends Component {
           val={val}
           name={name}
           langFilter={this.props.langFilter}
+          filteredLanguages={this.props.filteredLanguages}
         />
       );
     });
