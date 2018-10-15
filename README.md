@@ -14,7 +14,6 @@ https://erikstorm.github.io/localsnippets/
 
 ### Todos
 
-- Add search
 - Add filter
 - Add routing
 
