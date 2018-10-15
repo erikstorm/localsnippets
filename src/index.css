@@ -36,6 +36,14 @@ h5 > .badge-info {
   margin: 0.5em 0px 1em !important;
   border: none !important;
 }
+.list-group-item {
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  cursor: pointer;
+}
 #saveNewSnippet {
   margin-top: 20px;
 }

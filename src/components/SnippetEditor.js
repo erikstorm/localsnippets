@@ -118,10 +118,10 @@ export default class SnippetEditor extends Component {
             onFocus={evt => this.updateFormState(evt)}
             onKeyDown={evt => this.updateFormState(evt)}
             onKeyUp={evt => this.updateFormState(evt)}
-            autocomplete="off"
-            autocorrect="off"
-            autocapitalize="off"
-            spellcheck="false"
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck="false"
           />
           <button
             onClick={submitForm}

@@ -12,7 +12,7 @@ import SnippetCreator from './components/SnippetCreator';
 import SnippetEditor from './components/SnippetEditor';
 import SnippetList from './components/SnippetList';
 import Intro from './components/Intro';
-import SnippetTags from './components/SnippetTags';
+import SnippetTagList from './components/SnippetTagList';
 
 class App extends Component {
   constructor(props) {
@@ -29,6 +29,7 @@ class App extends Component {
       SnippetCreator: false,
       SnippetEditor: false,
       currentSnippet: '',
+      filteredLanguages: [],
       theme: JSON.parse(localStorage.getItem('theme'))
     };
   }
@@ -42,6 +43,17 @@ class App extends Component {
       theme: !this.state.theme
     });
   };
+  langFilter = language => {
+    let newLanguages = this.state.filteredLanguages;
+    if (!newLanguages.includes(language)) {
+      newLanguages.push(language);
+    } else {
+      newLanguages = newLanguages.filter(a => a !== language);
+    }
+
+    this.setState({ filteredLanguages: newLanguages });
+  };
+
   deleteSnippet = id => {
     window.confirm(`Are you sure you wish to delete this snippet?`) &&
       this.setState(
@@ -92,7 +104,7 @@ class App extends Component {
       });
     } else {
       NotificationManager.warning(
-        'Please fill out the `name` and `code` fields.'
+        'Something went wrong. Please fill out all required fields.'
       );
     }
   };
@@ -119,7 +131,7 @@ class App extends Component {
       });
     } else {
       NotificationManager.warning(
-        'Please fill out the `name` and `code` fields.'
+        'Something went wrong. Please fill out all required fields.'
       );
     }
   };
@@ -152,7 +164,10 @@ class App extends Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-12 col-sm-6">
-              <SnippetTags snippets={this.state.snippets} />
+              <SnippetTagList
+                snippets={this.state.snippets}
+                langFilter={this.langFilter}
+              />
             </div>
           </div>
           <SnippetList
@@ -161,6 +176,7 @@ class App extends Component {
             snippets={this.state.snippets}
             theme={this.state.theme}
             showEdit={this.showEdit}
+            filteredLanguages={this.state.filteredLanguages}
           />
         </div>
       );

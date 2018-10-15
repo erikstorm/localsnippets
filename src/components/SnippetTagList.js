@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import SnippetTagItem from './SnippetTagItem';
 
-export default class SnippetTags extends Component {
+export default class SnippetTagList extends Component {
   render() {
     let countTags = this.props.snippets
       .map(snip => {
@@ -15,15 +16,14 @@ export default class SnippetTags extends Component {
         return acc;
       }, {});
 
-    return Object.entries(countTags).map(([key, val], idx) => {
+    return Object.entries(countTags).map(([name, val], idx) => {
       return (
-        <li
+        <SnippetTagItem
           key={idx}
-          className="list-group-item d-flex justify-content-between align-items-center"
-        >
-          {key}
-          <span className="badge badge-info badge-pill">{val}</span>
-        </li>
+          val={val}
+          name={name}
+          langFilter={this.props.langFilter}
+        />
       );
     });
   }
