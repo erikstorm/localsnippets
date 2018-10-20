@@ -94,26 +94,20 @@ class App extends Component {
   createSnippet = createdSnippet => {
     if (createdSnippet.valid) {
       NotificationManager.success('New snippet created.');
-      this.setState(
-        prevState => (
+      this.setState(prevState => ({
+        snippets: [
           {
-            snippets: [
-              {
-                id: this.getNewItemKey(),
-                text: createdSnippet.text,
-                name: createdSnippet.name,
-                notes: createdSnippet.notes,
-                language: createdSnippet.language
-              },
-              ...this.state.snippets
-            ]
+            id: this.getNewItemKey(),
+            text: createdSnippet.text,
+            name: createdSnippet.name,
+            notes: createdSnippet.notes,
+            language: createdSnippet.language
           },
-          {
-            SnippetCreator: false,
-            filteredLanguages: []
-          }
-        )
-      );
+          ...this.state.snippets
+        ],
+        SnippetCreator: false,
+        filteredLanguages: []
+      }));
     } else {
       NotificationManager.warning(
         'Something went wrong. Please fill out all required fields.'
@@ -123,29 +117,23 @@ class App extends Component {
   editSnippet = editedSnippet => {
     if (editedSnippet.valid) {
       NotificationManager.success('Snippet edited.');
-      this.setState(
-        prevState => (
+      this.setState(prevState => ({
+        snippets: [
           {
-            snippets: [
-              {
-                id: editedSnippet.id,
-                text: editedSnippet.text,
-                name: editedSnippet.name,
-                notes: editedSnippet.notes,
-                language: editedSnippet.language
-              },
-              ...this.state.snippets.filter(snippet => {
-                return snippet.id !== editedSnippet.id;
-              })
-            ]
+            id: editedSnippet.id,
+            text: editedSnippet.text,
+            name: editedSnippet.name,
+            notes: editedSnippet.notes,
+            language: editedSnippet.language
           },
-          {
-            SnippetEditor: false,
-            SnippetCreator: false,
-            filteredLanguages: []
-          }
-        )
-      );
+          ...this.state.snippets.filter(snippet => {
+            return snippet.id !== editedSnippet.id;
+          })
+        ],
+        SnippetEditor: false,
+        SnippetCreator: false,
+        filteredLanguages: []
+      }));
     } else {
       NotificationManager.warning(
         'Something went wrong. Please fill out all required fields.'
