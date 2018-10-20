@@ -3,7 +3,7 @@ import Highlighter from './Highlighter';
 
 export default class SnippetList extends Component {
   render() {
-    const listedSnippets = this.props.snippets.map(snippet => {
+    const filtersApplied = this.props.snippets.map(snippet => {
       if (
         !this.props.filteredLanguages.length ||
         this.props.filteredLanguages.includes(snippet.language)
@@ -20,29 +20,35 @@ export default class SnippetList extends Component {
       }
       return '';
     });
-    const filterCount = this.props.snippets.filter(snippet => {
+    const searchString = this.props.searchString;
+    const searchApplied = filtersApplied.filter(obj => {
+      if (!obj.props) return ''; // this is undefined when filters are applied?
       if (
-        !this.props.filteredLanguages.length ||
-        this.props.filteredLanguages.includes(snippet.language)
+        obj.props.snippet.name
+          .toLowerCase()
+          .includes(searchString.toLowerCase())
       ) {
-        return snippet;
+        return obj;
       }
       return '';
-    }).length;
-    const filterText = this.props.filteredLanguages.length ? (
-      <div style={{ marginTop: '50px' }}>
-        <h6>
-          Showing <strong>{filterCount}</strong> snippets.
-        </h6>
-      </div>
-    ) : (
-      ''
-    );
+    });
+    const searchIsFiltering =
+      this.props.snippets.length !== searchApplied.length;
+    const filterText =
+      this.props.filteredLanguages.length || searchIsFiltering ? (
+        <div style={{ marginTop: '50px' }}>
+          <h6>
+            Showing <strong>{searchApplied.length}</strong> snippets.
+          </h6>
+        </div>
+      ) : (
+        ''
+      );
 
     return (
       <React.Fragment>
         {filterText}
-        {listedSnippets}
+        {searchApplied}
       </React.Fragment>
     );
   }

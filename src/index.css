@@ -1,3 +1,8 @@
+html,
+body {
+  background-color: rgb(253, 253, 253);
+}
+
 header > h3 {
   text-align: center;
 }
@@ -44,6 +49,13 @@ h5 > .badge-info {
   -o-user-select: none;
   cursor: pointer;
 }
+
+.list-group-item.active {
+  z-index: 2;
+  color: rgb(145, 154, 161) !important;
+  background-color: #eceeef !important;
+  border-color: #eceeef !important;
+}
 #saveNewSnippet {
   margin-top: 20px;
 }
@@ -70,6 +82,14 @@ h5 > .badge-info {
   top: 0;
   right: 0;
   z-index: 1;
+}
+
+#searchSnippetInput {
+  border: 2px solid rgba(0, 0, 0, 0.05);
+  background: white;
+}
+#searchSnippetInput:focus {
+  box-shadow: none;
 }
 @media all and (max-width: 768px) {
   #navMenu {

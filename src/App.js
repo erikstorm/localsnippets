@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './index.css';
-import './bootstrap.min.css';
-import '../node_modules/react-notifications/dist/react-notifications.css';
 import {
   NotificationContainer,
   NotificationManager
 } from 'react-notifications';
+import './index.css';
+import './bootstrap.min.css';
+import '../node_modules/react-notifications/dist/react-notifications.css';
 import DefaultSnippets from './data/DefaultSnippets';
 import Header from './components/Header';
 import SnippetCreator from './components/SnippetCreator';
@@ -13,6 +13,7 @@ import SnippetEditor from './components/SnippetEditor';
 import SnippetList from './components/SnippetList';
 import Intro from './components/Intro';
 import SnippetTagList from './components/SnippetTagList';
+import SearchInput from './components/SearchInput';
 
 class App extends Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class App extends Component {
       SnippetEditor: false,
       currentSnippet: '',
       filteredLanguages: [],
+      searchString: '',
       theme: JSON.parse(localStorage.getItem('theme'))
     };
   }
@@ -52,6 +54,10 @@ class App extends Component {
     }
 
     this.setState({ filteredLanguages: newLanguages });
+  };
+
+  searchStringInput = searchString => {
+    this.setState({ searchString: searchString });
   };
 
   deleteSnippet = id => {
@@ -175,6 +181,10 @@ class App extends Component {
                 filteredLanguages={this.state.filteredLanguages}
               />
             </div>
+            <SearchInput
+              value={this.state.searchString}
+              searchStringInput={this.searchStringInput}
+            />
           </div>
           <SnippetList
             key={1}
@@ -183,6 +193,7 @@ class App extends Component {
             theme={this.state.theme}
             showEdit={this.showEdit}
             filteredLanguages={this.state.filteredLanguages}
+            searchString={this.state.searchString}
           />
         </div>
       );
