@@ -10,10 +10,8 @@ import DefaultSnippets from './data/DefaultSnippets';
 import Header from './components/Header';
 import SnippetCreator from './components/SnippetCreator';
 import SnippetEditor from './components/SnippetEditor';
-import SnippetList from './components/SnippetList';
 import Intro from './components/Intro';
-import SnippetTagList from './components/SnippetTagList';
-import SearchInput from './components/SearchInput';
+import SnippetView from './components/SnippetView';
 
 class App extends Component {
   constructor(props) {
@@ -96,22 +94,26 @@ class App extends Component {
   createSnippet = createdSnippet => {
     if (createdSnippet.valid) {
       NotificationManager.success('New snippet created.');
-      this.setState(prevState => ({
-        snippets: [
+      this.setState(
+        prevState => (
           {
-            id: this.getNewItemKey(),
-            text: createdSnippet.text,
-            name: createdSnippet.name,
-            notes: createdSnippet.notes,
-            language: createdSnippet.language
+            snippets: [
+              {
+                id: this.getNewItemKey(),
+                text: createdSnippet.text,
+                name: createdSnippet.name,
+                notes: createdSnippet.notes,
+                language: createdSnippet.language
+              },
+              ...this.state.snippets
+            ]
           },
-          ...this.state.snippets
-        ]
-      }));
-      this.setState({
-        SnippetCreator: false,
-        filteredLanguages: []
-      });
+          {
+            SnippetCreator: false,
+            filteredLanguages: []
+          }
+        )
+      );
     } else {
       NotificationManager.warning(
         'Something went wrong. Please fill out all required fields.'
@@ -121,25 +123,29 @@ class App extends Component {
   editSnippet = editedSnippet => {
     if (editedSnippet.valid) {
       NotificationManager.success('Snippet edited.');
-      this.setState(prevState => ({
-        snippets: [
+      this.setState(
+        prevState => (
           {
-            id: editedSnippet.id,
-            text: editedSnippet.text,
-            name: editedSnippet.name,
-            notes: editedSnippet.notes,
-            language: editedSnippet.language
+            snippets: [
+              {
+                id: editedSnippet.id,
+                text: editedSnippet.text,
+                name: editedSnippet.name,
+                notes: editedSnippet.notes,
+                language: editedSnippet.language
+              },
+              ...this.state.snippets.filter(snippet => {
+                return snippet.id !== editedSnippet.id;
+              })
+            ]
           },
-          ...this.state.snippets.filter(snippet => {
-            return snippet.id !== editedSnippet.id;
-          })
-        ]
-      }));
-      this.setState({
-        SnippetEditor: false,
-        SnippetCreator: false,
-        filteredLanguages: []
-      });
+          {
+            SnippetEditor: false,
+            SnippetCreator: false,
+            filteredLanguages: []
+          }
+        )
+      );
     } else {
       NotificationManager.warning(
         'Something went wrong. Please fill out all required fields.'
@@ -172,30 +178,17 @@ class App extends Component {
       );
     } else {
       snippetList = (
-        <div className="container">
-          <div className="row">
-            <div className="col-xs-12 col-sm-6">
-              <SnippetTagList
-                snippets={this.state.snippets}
-                langFilter={this.langFilter}
-                filteredLanguages={this.state.filteredLanguages}
-              />
-            </div>
-            <SearchInput
-              value={this.state.searchString}
-              searchStringInput={this.searchStringInput}
-            />
-          </div>
-          <SnippetList
-            key={1}
-            deleteSnippet={this.deleteSnippet}
-            snippets={this.state.snippets}
-            theme={this.state.theme}
-            showEdit={this.showEdit}
-            filteredLanguages={this.state.filteredLanguages}
-            searchString={this.state.searchString}
-          />
-        </div>
+        <SnippetView
+          deleteSnippet={this.deleteSnippet}
+          snippets={this.state.snippets}
+          theme={this.state.theme}
+          showEdit={this.showEdit}
+          value={this.state.searchString}
+          langFilter={this.langFilter}
+          filteredLanguages={this.state.filteredLanguages}
+          searchString={this.state.searchString}
+          searchStringInput={this.searchStringInput}
+        />
       );
     }
     return (
