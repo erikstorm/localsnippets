@@ -32,12 +32,13 @@ export default class SnippetList extends Component {
       }
       return '';
     });
+    const headingColor = !this.props.theme ? 'white' : '#1a1a1a';
     const searchIsFiltering =
       this.props.snippets.length !== searchApplied.length;
     const filterText =
       this.props.filteredLanguages.length || searchIsFiltering ? (
         <div style={{ marginTop: '50px' }}>
-          <h6>
+          <h6 style={{ color: headingColor }}>
             Showing <strong>{searchApplied.length}</strong> snippets.
           </h6>
         </div>

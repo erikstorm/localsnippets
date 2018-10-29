@@ -3,7 +3,7 @@ import React from 'react';
 export default () => {
   return (
     <div>
-      <h5 style={{ marginTop: '20px' }}>
+      <h5>
         <code>localSnippets</code>
       </h5>
       <p>

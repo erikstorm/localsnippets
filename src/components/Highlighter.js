@@ -7,13 +7,14 @@ export default class Highlighter extends Component {
   render() {
     const anchorLink =
       '#' + this.props.snippet.name.replace(/ /g, '-').toLowerCase();
+    const headingColor = !this.props.theme ? 'white' : '#1a1a1a';
     return (
       <div className="code-container">
         <div className="container">
           <a style={{ color: '#e83e8c' }} href={anchorLink}>
             {anchorLink}
           </a>
-          <h5>
+          <h5 style={{ color: headingColor }}>
             {this.props.snippet.name}{' '}
             <span className="badge badge-pill badge-info">
               {this.props.snippet.language}

@@ -41,6 +41,7 @@ h5 > .badge-info {
   border-radius: 0px !important;
   margin: 0.5em 0px 1em !important;
   border: none !important;
+  box-shadow: none !important;
 }
 .list-group-item {
   user-select: none;
@@ -91,6 +92,18 @@ h5 > .badge-info {
 }
 #searchSnippetInput:focus {
   box-shadow: none;
+}
+.white-theme {
+  background: #fdfdfd none repeat scroll 0 0;
+}
+.dark-theme {
+  background: rgb(20, 20, 20);
+}
+.dark-theme,
+.white-theme {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  min-height: 100vh;
 }
 @media all and (max-width: 768px) {
   #navMenu {

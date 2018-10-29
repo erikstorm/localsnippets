@@ -150,6 +150,7 @@ class App extends Component {
     );
   }
   render() {
+    const appTheme = this.state.theme ? 'white-theme' : 'dark-theme';
     let snippetList, editor;
     if (this.state.SnippetCreator || this.state.SnippetEditor) {
       editor = this.state.SnippetCreator ? (
@@ -180,7 +181,7 @@ class App extends Component {
       );
     }
     return (
-      <div>
+      <div className={appTheme}>
         <div className="container">
           <Intro />
           <Header
