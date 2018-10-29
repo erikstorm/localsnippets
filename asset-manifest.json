@@ -1,16 +1,16 @@
 {
-  "main.css": "/localsnippets/static/css/main.867c14d2.chunk.css",
-  "main.js": "/localsnippets/static/js/main.9f939554.chunk.js",
-  "main.js.map": "/localsnippets/static/js/main.9f939554.chunk.js.map",
+  "main.css": "/localsnippets/static/css/main.ded1afdf.chunk.css",
+  "main.js": "/localsnippets/static/js/main.5186616b.chunk.js",
+  "main.js.map": "/localsnippets/static/js/main.5186616b.chunk.js.map",
   "static/css/1.3113f4b5.chunk.css": "/localsnippets/static/css/1.3113f4b5.chunk.css",
   "static/js/1.8cc50930.chunk.js": "/localsnippets/static/js/1.8cc50930.chunk.js",
   "static/js/1.8cc50930.chunk.js.map": "/localsnippets/static/js/1.8cc50930.chunk.js.map",
   "runtime~main.js": "/localsnippets/static/js/runtime~main.6abcb076.js",
   "runtime~main.js.map": "/localsnippets/static/js/runtime~main.6abcb076.js.map",
-  "static/media/react-notifications.css": "/localsnippets/static/media/notification.651771e1.woff",
-  "static/css/main.867c14d2.chunk.css.map": "/localsnippets/static/css/main.867c14d2.chunk.css.map",
+  "static/media/react-notifications.css": "/localsnippets/static/media/notification.c0d3c94c.eot",
+  "static/css/main.ded1afdf.chunk.css.map": "/localsnippets/static/css/main.ded1afdf.chunk.css.map",
   "static/css/1.3113f4b5.chunk.css.map": "/localsnippets/static/css/1.3113f4b5.chunk.css.map",
   "index.html": "/localsnippets/index.html",
-  "precache-manifest.c490b444dfce4c27daf820af4ba9427e.js": "/localsnippets/precache-manifest.c490b444dfce4c27daf820af4ba9427e.js",
+  "precache-manifest.074bd2ab6e38dfecd446e6ef3b4ff3c9.js": "/localsnippets/precache-manifest.074bd2ab6e38dfecd446e6ef3b4ff3c9.js",
   "service-worker.js": "/localsnippets/service-worker.js"
 }

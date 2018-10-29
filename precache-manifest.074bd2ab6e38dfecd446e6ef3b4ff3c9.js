@@ -20,23 +20,23 @@ self.__precacheManifest = [
     "url": "/localsnippets/static/js/runtime~main.6abcb076.js"
   },
   {
-    "revision": "9f93955496cf1943558b",
-    "url": "/localsnippets/static/js/main.9f939554.chunk.js"
+    "revision": "5186616bcd0723f2334e",
+    "url": "/localsnippets/static/js/main.5186616b.chunk.js"
   },
   {
     "revision": "8cc50930e7b869b62f4e",
     "url": "/localsnippets/static/js/1.8cc50930.chunk.js"
   },
   {
-    "revision": "9f93955496cf1943558b",
-    "url": "/localsnippets/static/css/main.867c14d2.chunk.css"
+    "revision": "5186616bcd0723f2334e",
+    "url": "/localsnippets/static/css/main.ded1afdf.chunk.css"
   },
   {
     "revision": "8cc50930e7b869b62f4e",
     "url": "/localsnippets/static/css/1.3113f4b5.chunk.css"
   },
   {
-    "revision": "580260fdc2f27d0cd38216fc677d6a85",
+    "revision": "4941c23b534d4f0298fc5dd42b87bb5c",
     "url": "/localsnippets/index.html"
   }
 ];
