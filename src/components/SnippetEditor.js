@@ -15,6 +15,11 @@ export default class SnippetEditor extends Component {
       valid: false
     };
   }
+  componentDidMount() {
+    document.getElementById(
+      'snippetLanguageSelect'
+    ).value = this.state.language;
+  }
   updateFormState(event) {
     if (this.state.text.length < 1 || this.state.name.length < 1) {
       this.setState({
